@@ -11,21 +11,26 @@ public class OrigenLaser : MonoBehaviour
     private RaycastHit hit;
     private Ray ray;
     private bool gano=false;
+
+    private void OnEnable()
+    {
+        EmpezarBT.presiono += llamarALanzarRayo;
+    }
+    private void OnDisable()
+    {
+        EmpezarBT.presiono -= llamarALanzarRayo;
+    }
     // Start is called before the first frame update
     void Start()
     {
         renderLaser = GetComponent<LineRenderer>();
         renderLaser.SetPosition(0, puntoInicio.forward);
+    }
+
+    void llamarALanzarRayo()
+    {
         lanzarRayo(transform.position, transform.right);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-      
-    }
-
     void lanzarRayo(Vector3 posicion, Vector3 direccion)
     {
         renderLaser.SetPosition(0, puntoInicio.position);
