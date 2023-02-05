@@ -23,25 +23,17 @@ public class MenuPrincipal : MonoBehaviour
 
     private void OnEnable()
     {
-       // PlaneManager.planesChanged += PlanesFound;
+   
     }
 
     private void OnDisable()
     {
-        //PlaneManager.planesChanged -= PlanesFound;
+    
     }
 
     private void Start()
     {
-  /*      GameObject[] ListaARsession = GameObject.FindGameObjectsWithTag("ARSession");
-        if (ListaARsession.Length > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }*/
+
         
     }
     // Start is called before the first frame update

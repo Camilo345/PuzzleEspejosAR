@@ -13,6 +13,7 @@ public class OrigenLaser : MonoBehaviour
     private bool gano=false;
     [SerializeField]
     private Material mat;
+    private CalcularPuntaje puntaje;
 
     private void OnEnable()
     {
@@ -25,7 +26,7 @@ public class OrigenLaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        puntaje = GameObject.FindGameObjectWithTag("GameController").GetComponent<CalcularPuntaje>();
         renderLaser.SetPosition(0, puntoInicio.forward);
     }
 
@@ -62,5 +63,6 @@ public class OrigenLaser : MonoBehaviour
                
             }
         }
+        puntaje.abrirPanel();
     }
 }

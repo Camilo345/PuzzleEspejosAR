@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 385334607}
   botonEspejo: {fileID: 639120890}
-  espejos: {fileID: 428413257}
+  espejos: {fileID: 0}
 --- !u!114 &385334610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426198226}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a73b4025f35c02441b9fe740a18cc0b2, type: 3}
   m_Name: 
@@ -1278,9 +1278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 428413253}
-  - component: {fileID: 428413258}
-  - component: {fileID: 428413252}
-  - component: {fileID: 428413257}
+  - component: {fileID: 428413254}
   m_Layer: 0
   m_Name: Controler
   m_TagString: Untagged
@@ -1288,22 +1286,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &428413252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428413251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ff5d6b1e7607d46a58856b1ad26f8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 705826931}
-  layer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!4 &428413253
 Transform:
   m_ObjectHideFlags: 0
@@ -1319,7 +1301,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &428413257
+--- !u!114 &428413254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1328,29 +1310,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 428413251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee60edac45af731498c1dd63ed740e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 08b06193dfe877b47ad31ed5c999a4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listaEspejos:
-  - {fileID: 459091947}
-  totalEspejos: 0
-  panel: {fileID: 385334607}
-  botonEspejos: {fileID: 639120890}
-  espejoSeleccionado: {fileID: 0}
---- !u!114 &428413258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428413251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5a874b48cb67b042b31a2e92c0d8678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nivel: {fileID: 1445907409}
-  imageTracker: {fileID: 1208182906}
+  boton: {fileID: 887193578}
 --- !u!1 &441478055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 459091948}
   - component: {fileID: 459091949}
+  - component: {fileID: 459091950}
   m_Layer: 4
   m_Name: Espejo (1)
   m_TagString: Untagged
@@ -1644,6 +1608,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &459091950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459091947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73b4025f35c02441b9fe740a18cc0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 459091949}
 --- !u!1 &467326808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +1796,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502500709}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a73b4025f35c02441b9fe740a18cc0b2, type: 3}
   m_Name: 
@@ -2461,7 +2438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 385334607}
   botonEspejo: {fileID: 639120890}
-  espejos: {fileID: 428413257}
+  espejos: {fileID: 0}
 --- !u!1 &646598770
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,6 +2994,7 @@ MonoBehaviour:
   rebotes: 4
   puntoInicio: {fileID: 811106177}
   renderLaser: {fileID: 811106180}
+  mat: {fileID: 0}
 --- !u!120 &811106180
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -4087,7 +4065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedLibrary: {fileID: 11400000, guid: dadf776da22b50c47a0964865a700a57, type: 2}
   m_MaxNumberOfMovingImages: 1
-  m_TrackedImagePrefab: {fileID: 4523251213427336662, guid: 1c35ffee6a4a8634b91b92f879256d60, type: 3}
+  m_TrackedImagePrefab: {fileID: 7722465855042682902, guid: 3f7f04e8e79c22341885e5e8d0d9e846, type: 3}
 --- !u!114 &1208182907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4353,7 +4331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0d4acfea4e6db224595e95a0a23a3f50, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4806926cda899bd41a3585e639a4fd42, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4477,13 +4455,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1445907410}
+  - component: {fileID: 1445907411}
   m_Layer: 0
   m_Name: Nivel
-  m_TagString: Untagged
+  m_TagString: Nivel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1445907410
 Transform:
   m_ObjectHideFlags: 0
@@ -4504,6 +4483,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1445907411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445907409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee60edac45af731498c1dd63ed740e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listaEspejos:
+  - {fileID: 459091947}
+  totalEspejos: 0
+  panel: {fileID: 0}
+  botonEspejos: {fileID: 0}
+  espejoSeleccionado: {fileID: 0}
 --- !u!1 &1461682416
 GameObject:
   m_ObjectHideFlags: 0
@@ -6408,7 +6405,7 @@ GameObject:
   - component: {fileID: 2009562882}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: SpawnEspejo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

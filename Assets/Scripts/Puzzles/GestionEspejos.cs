@@ -9,20 +9,21 @@ public class GestionEspejos : MonoBehaviour
     public GameObject panel;
     public GameObject botonEspejos;
 
+   
     [SerializeField]
     private GameObject espejoSeleccionado;
+    private GirarEspejo girarEsp;
 
     public delegate void eventoEmpezar();
-    public static event eventoEmpezar empezar;
-    private void OnEnable()
-    {
-       // empezar();
-    }
+    public static event eventoEmpezar empezarPu;
+
+  
+
     // Start is called before the first frame update
     void Start()
     {
-      
-      //  botonEspejos = GameObject.FindGameObjectWithTag("BTespejos");
+     
+        botonEspejos = GameObject.FindGameObjectWithTag("BTespejos");
         totalEspejos = listaEspejos.Count;
     }
 
@@ -42,13 +43,14 @@ public class GestionEspejos : MonoBehaviour
 
     public void activarUnEspejo()
     {
-      //  panel = GameObject.FindGameObjectWithTag("Panel");
+        panel = GameObject.FindGameObjectWithTag("Panel");
         for (int i = 0; i < listaEspejos.Count; i++)
         {
             if (!listaEspejos[i].activeInHierarchy)
             {
                 listaEspejos[i].SetActive(true);
                 espejoSeleccionado = listaEspejos[i];
+                girarEsp = espejoSeleccionado.GetComponent<GirarEspejo>();
                 panel.SetActive(true);
                 botonEspejos.SetActive(false);
                 break;
@@ -69,5 +71,10 @@ public class GestionEspejos : MonoBehaviour
     public void restarTotalEspejos()
     {
         totalEspejos--;
+    }
+
+    public void girarEspejo()
+    {
+        girarEsp.AnimacionGirar();
     }
 }

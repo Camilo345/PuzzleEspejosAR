@@ -8,19 +8,14 @@ public class botonesMoverEspejp : MonoBehaviour
     public GameObject botonEspejo;
     public GestionEspejos espejos;
 
-    private void OnEnable()
-    {
-        GestionEspejos.empezar += buscarEspejos;
-    }
+    public delegate void eventoAbrirPanel();
+    public static event eventoAbrirPanel activarPanel;
 
-    private void OnDisable()
-    {
-        GestionEspejos.empezar -= buscarEspejos;
-    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+       // espejos = GameObject.FindGameObjectWithTag("Nivel").GetComponent<GestionEspejos>();
     }
 
     // Update is called once per frame
@@ -31,13 +26,16 @@ public class botonesMoverEspejp : MonoBehaviour
 
     void buscarEspejos()
     {
-       // espejos = GameObject.FindGameObjectWithTag("Nivel").GetComponent<GestionEspejos>();
+        espejos = GameObject.FindGameObjectWithTag("Nivel").GetComponent<GestionEspejos>();
+   
     }
 
     public void abrirPanel()
     {
+        buscarEspejos();
         if (espejos.totalEspejos > 0)
         {
+            activarPanel();
             panel.SetActive(true);
             botonEspejo.SetActive(false);
             espejos.activarUnEspejo();
@@ -45,28 +43,30 @@ public class botonesMoverEspejp : MonoBehaviour
     }
     public void moverEspejoX(float dir)
     {
-        
+        buscarEspejos();
         Vector3 pos = new Vector3(dir,0,0);
         espejos.moverEspejo(pos);
     }
 
     public void moverEspejoZ(float dir)
     {
-      
+        buscarEspejos();
         Vector3 pos = new Vector3(0, 0, dir);
         espejos.moverEspejo(pos);
     }
 
     public void aceptar()
     {
+        buscarEspejos();
         panel.SetActive(false);
         botonEspejo.SetActive(true);
+        activarPanel();
         espejos.restarTotalEspejos();
     }
 
     public void rechazar()
     {
-        panel.SetActive(false);
-        botonEspejo.SetActive(true);
+        buscarEspejos();
+        espejos.girarEspejo();
     }
 }
