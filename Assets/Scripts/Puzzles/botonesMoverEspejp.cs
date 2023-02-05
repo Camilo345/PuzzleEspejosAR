@@ -33,7 +33,7 @@ public class botonesMoverEspejp : MonoBehaviour
     public void abrirPanel()
     {
         buscarEspejos();
-        if (espejos.totalEspejos > 0)
+        if (espejos.espejosRestantes > 0)
         {
             activarPanel();
             panel.SetActive(true);

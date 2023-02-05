@@ -15,6 +15,9 @@ public class OrigenLaser : MonoBehaviour
     private Material mat;
     private CalcularPuntaje puntaje;
 
+    public delegate void eventoGanar(bool estado);
+    public static event eventoGanar ganoPerdio;
+
     private void OnEnable()
     {
         EmpezarBT.presiono += llamarALanzarRayo;
@@ -50,13 +53,13 @@ public class OrigenLaser : MonoBehaviour
                 Debug.DrawRay(posicion, direccion * hit.distance, Color.green);
                 if (hit.collider.gameObject.CompareTag("Objetivo"))
                 {
-                    Debug.Log("checkmate");
+                    ganoPerdio(true);
                     hit.collider.gameObject.GetComponent<MeshRenderer>().material = mat;
                     break;
                 }
                 if (hit.transform.tag!="Espejo")
                  {
-                    Debug.Log("Pared");
+                    ganoPerdio(false);
                     renderLaser.positionCount--;
                     break;
                  }

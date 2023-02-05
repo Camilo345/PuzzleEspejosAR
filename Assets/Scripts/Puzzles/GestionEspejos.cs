@@ -6,8 +6,11 @@ public class GestionEspejos : MonoBehaviour
 {
     public List<GameObject> listaEspejos;
     public int totalEspejos;
+    public int espejosRestantes;
     public GameObject panel;
     public GameObject botonEspejos;
+    public Vector3 posLaser;
+    public Vector3 posObjetivo;
 
    
     [SerializeField]
@@ -25,6 +28,7 @@ public class GestionEspejos : MonoBehaviour
      
         botonEspejos = GameObject.FindGameObjectWithTag("BTespejos");
         totalEspejos = listaEspejos.Count;
+        espejosRestantes = totalEspejos;
     }
 
     // Update is called once per frame
@@ -62,15 +66,19 @@ public class GestionEspejos : MonoBehaviour
     {
         Vector3 posAuxiliar = espejoSeleccionado.transform.localPosition;
         posAuxiliar += posicionNueva;
-        if (posAuxiliar.z <= 4.4f && posAuxiliar.z>=0 && posAuxiliar.x <= 6.7f && posAuxiliar.x>=0)
+        if (posAuxiliar.z <= 4.4f && posAuxiliar.z >= 0 && posAuxiliar.x <= 6.7f && posAuxiliar.x >= 0)
         {
-            espejoSeleccionado.transform.localPosition = posAuxiliar;
+            if (posAuxiliar != posLaser && posAuxiliar != posObjetivo)
+            {
+                espejoSeleccionado.transform.localPosition = posAuxiliar;
+            }
+            
         }
     }
 
     public void restarTotalEspejos()
     {
-        totalEspejos--;
+        espejosRestantes--;
     }
 
     public void girarEspejo()
