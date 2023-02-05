@@ -8,11 +8,12 @@ public class ControlMenu : MonoBehaviour
     public Camera cam;
     public GameObject panel;
     public GameObject punto;
+    public int numeroBoton = 0;
 
     private RaycastHit hit;
     private Ray ray;
-    private int numeroBoton = 0;
     private bool puedoLanzar = true;
+
 
     private void OnEnable()
     {
@@ -56,14 +57,17 @@ public class ControlMenu : MonoBehaviour
             else if (hit.collider.gameObject.CompareTag("Empezar"))
             {
                 numeroBoton = 2;
-            
             }
             else
             {
                 numeroBoton = 0;
             }
         }
-        Debug.DrawRay(ray.origin, ray.direction,Color.green,100);
+        else
+        {
+            numeroBoton = 0;
+        }
+        
     }
 
     void cambiatEscena()

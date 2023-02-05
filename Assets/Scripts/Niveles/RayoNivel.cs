@@ -6,7 +6,7 @@ public class RayoNivel : MonoBehaviour
 {
 
     public Camera cam;
-
+    public string nombre;
     public GameObject punto;
 
     private RaycastHit hit;
@@ -34,14 +34,18 @@ public class RayoNivel : MonoBehaviour
         ray = cam.ScreenPointToRay(posMouse);
 
         int mask = LayerMask.GetMask("interactuar");
-        if (Physics.Raycast(ray.origin, ray.direction, out hit, 100, mask))
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, 300, mask))
         {
             puedoCambiar = true;
+            nombre = hit.collider.name;
+           
         }
         else
         {
             puedoCambiar = false;
+            nombre = "  ";
         }
+        Debug.DrawRay(ray.origin, ray.direction, Color.green,300);
     }
 
     void cambiarEscena()
