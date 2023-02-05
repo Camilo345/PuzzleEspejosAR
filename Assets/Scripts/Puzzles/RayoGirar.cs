@@ -5,9 +5,11 @@ using UnityEngine;
 public class RayoGirar : MonoBehaviour
 {
     public Camera cam;
+    public LayerMask layer;
 
     private Ray ray;
     private RaycastHit hit;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +31,10 @@ public class RayoGirar : MonoBehaviour
             posMouse = cam.ScreenToWorldPoint(posMouse);
 
             ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray.origin, ray.direction, out hit))
+        int mask = LayerMask.GetMask("Espejo");
+            if (Physics.Raycast(ray.origin, ray.direction, out hit,100,mask))
             {
+            Debug.Log(hit.collider.tag);
                 if (hit.collider.gameObject.CompareTag("Espejo"))
                 {
                 hit.collider.gameObject.GetComponent<GirarEspejo>().AnimacionGirar();

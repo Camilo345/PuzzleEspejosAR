@@ -21,9 +21,9 @@ MonoBehaviour:
       m_GuidLow: 5552706734598063301
       m_GuidHigh: 12086294407004992407
     m_SerializedTextureGuid:
-      m_GuidLow: 6891843928820767099
-      m_GuidHigh: 3989885412811946680
+      m_GuidLow: 13395108045260562358
+      m_GuidHigh: 6843725397858676891
     m_Size: {x: 0.3, y: 0.3}
     m_SpecifySize: 1
     m_Name: Layton
-    m_Texture: {fileID: 2800000, guid: e8cb597bbf895fa4b83a2bc5a4eb5e37, type: 3}
+    m_Texture: {fileID: 2800000, guid: fdbb9fb6fbcbb9e49b70af5ffdcbf95e, type: 3}

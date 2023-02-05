@@ -249,6 +249,9 @@ GameObject:
   - component: {fileID: 927969681}
   - component: {fileID: 927969680}
   - component: {fileID: 927969679}
+  - component: {fileID: 927969685}
+  - component: {fileID: 927969687}
+  - component: {fileID: 927969686}
   m_Layer: 0
   m_Name: AR Session
   m_TagString: Untagged
@@ -298,6 +301,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &927969685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927969678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e615dc4ce79d1674d996a9fa92efd7e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlaneManager: {fileID: 0}
+  Cubo: {fileID: 2061102406441661379, guid: d601a14342e4bf64cbc7560f07765f40, type: 3}
+  material1: {fileID: 2100000, guid: 6b84c6de89301b04da77da11d9b889a0, type: 2}
+  cam: {fileID: 1221005360}
+  info: {fileID: 0}
+--- !u!114 &927969686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927969678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedLibrary: {fileID: 11400000, guid: dadf776da22b50c47a0964865a700a57, type: 2}
+  m_MaxNumberOfMovingImages: 1
+  m_TrackedImagePrefab: {fileID: 2061102406441661379, guid: d601a14342e4bf64cbc7560f07765f40, type: 3}
+--- !u!114 &927969687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927969678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520bb47c46cf8624fafb307b7d1b862a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 1221005360}
 --- !u!1 &1221005359
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,8 +621,6 @@ GameObject:
   - component: {fileID: 1536170581}
   - component: {fileID: 1536170580}
   - component: {fileID: 1536170579}
-  - component: {fileID: 1536170578}
-  - component: {fileID: 1536170582}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: ARSession
@@ -582,25 +628,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1536170578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536170577}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d56cc8dc274d044ab8aa06d0a054454, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlaneManager: {fileID: 1536170579}
-  Cubo: {fileID: 2061102406441661379, guid: d601a14342e4bf64cbc7560f07765f40, type: 3}
-  material1: {fileID: 2100000, guid: 6b84c6de89301b04da77da11d9b889a0, type: 2}
-  cam: {fileID: 1221005360}
-  layer:
-    serializedVersion: 2
-    m_Bits: 16
 --- !u!114 &1536170579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,21 +671,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1536170582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536170577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedLibrary: {fileID: 11400000, guid: dadf776da22b50c47a0964865a700a57, type: 2}
-  m_MaxNumberOfMovingImages: 2
-  m_TrackedImagePrefab: {fileID: 2061102406441661379, guid: d601a14342e4bf64cbc7560f07765f40, type: 3}
 --- !u!1 &2048804737
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/New Scene.unity
     guid: 28dfa746d97b0cf4ea04a821e071698e
+  - enabled: 1
+    path: Assets/Scenes/PruebasEspejos.unity
+    guid: 7775497d21c06d847b389551272398bb
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 93fd2a91f50d1084ebc28c8ca06c929d, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 8d04a64dd0a38d44ab6bff8c73530f07, type: 2}

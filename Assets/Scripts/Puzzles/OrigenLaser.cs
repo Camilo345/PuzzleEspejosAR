@@ -6,11 +6,13 @@ public class OrigenLaser : MonoBehaviour
 {
     public int rebotes;
     public Transform puntoInicio;
+    public LineRenderer renderLaser;
 
-    private LineRenderer renderLaser;
     private RaycastHit hit;
     private Ray ray;
     private bool gano=false;
+    [SerializeField]
+    private Material mat;
 
     private void OnEnable()
     {
@@ -23,7 +25,7 @@ public class OrigenLaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        renderLaser = GetComponent<LineRenderer>();
+      
         renderLaser.SetPosition(0, puntoInicio.forward);
     }
 
@@ -48,7 +50,7 @@ public class OrigenLaser : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Objetivo"))
                 {
                     Debug.Log("checkmate");
-                   
+                    hit.collider.gameObject.GetComponent<MeshRenderer>().material = mat;
                     break;
                 }
                 if (hit.transform.tag!="Espejo")
