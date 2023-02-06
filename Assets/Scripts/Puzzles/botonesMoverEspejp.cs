@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class botonesMoverEspejp : MonoBehaviour
 {
     public GameObject panel;
     public GameObject botonEspejo;
     public GestionEspejos espejos;
+ 
 
     public delegate void eventoAbrirPanel();
     public static event eventoAbrirPanel activarPanel;
@@ -40,6 +42,7 @@ public class botonesMoverEspejp : MonoBehaviour
             botonEspejo.SetActive(false);
             espejos.activarUnEspejo();
         }
+       
     }
     public void moverEspejoX(float dir)
     {
@@ -62,6 +65,11 @@ public class botonesMoverEspejp : MonoBehaviour
         botonEspejo.SetActive(true);
         activarPanel();
         espejos.restarTotalEspejos();
+        if (espejos.espejosRestantes == 0)
+        {
+
+            botonEspejo.SetActive(false);
+        }
     }
 
     public void rechazar()

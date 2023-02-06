@@ -1329,6 +1329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puntaje: 0
+  nivel: 1
   listaEstrellas:
   - {fileID: 724347194}
   - {fileID: 1526413233}
@@ -2924,7 +2925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &724347195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4634,6 +4635,7 @@ MonoBehaviour:
   posLaser: {x: 0, y: 1, z: 3.3}
   posObjetivo: {x: 6.6, y: 1, z: 1.1}
   espejoSeleccionado: {fileID: 0}
+  posicionObstaculos: []
 --- !u!1 &1461682416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5266,7 +5268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1526413234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6613,7 +6615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1987295036
 RectTransform:
   m_ObjectHideFlags: 0

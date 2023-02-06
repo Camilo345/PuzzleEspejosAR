@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class CalcularPuntaje : MonoBehaviour
 {
     public int puntaje;
+    public int nivel;
     public List<GameObject> listaEstrellas = new List<GameObject>();
     public GameObject panel;
     public GestionEspejos espejos;
@@ -51,7 +52,18 @@ public class CalcularPuntaje : MonoBehaviour
         Debug.Log(totalEspejos + "");
         GameObject[] listaEspejos = GameObject.FindGameObjectsWithTag("Espejo");
         puntaje = (3 * listaEspejos.Length) / totalEspejos;
+
+        actualizarPuntaje();
         colocarEstrellas();
+    }
+
+    void actualizarPuntaje()
+    {
+        int puntajeActual = PlayerPrefs.GetInt("puntaje" + nivel);
+        if (puntaje > puntajeActual)
+        {
+            PlayerPrefs.SetInt("puntaje" + nivel, puntaje);
+        }
     }
 
     void colocarEstrellas()

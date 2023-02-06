@@ -16,6 +16,8 @@ public class GestionEspejos : MonoBehaviour
     [SerializeField]
     private GameObject espejoSeleccionado;
     private GirarEspejo girarEsp;
+    [SerializeField]
+    private List<Transform> posicionObstaculos = new List<Transform>();
 
     public delegate void eventoEmpezar();
     public static event eventoEmpezar empezarPu;
@@ -59,6 +61,7 @@ public class GestionEspejos : MonoBehaviour
                 botonEspejos.SetActive(false);
                 break;
             }
+          
         }
     }
 
@@ -66,18 +69,36 @@ public class GestionEspejos : MonoBehaviour
     {
         Vector3 posAuxiliar = espejoSeleccionado.transform.localPosition;
         posAuxiliar += posicionNueva;
+        if (revisarPosicion(posAuxiliar)){
+            espejoSeleccionado.transform.localPosition = posAuxiliar;
+        }
+    }
+
+    bool revisarPosicion(Vector3 posAuxiliar)
+    {
+        bool vacio = false;
+    
         if (posAuxiliar.z <= 4.4f && posAuxiliar.z >= 0 && posAuxiliar.x <= 6.7f && posAuxiliar.x >= 0)
         {
             if (posAuxiliar != posLaser && posAuxiliar != posObjetivo)
             {
-                espejoSeleccionado.transform.localPosition = posAuxiliar;
+
+                vacio = true;
             }
-            
         }
+        for (int i = 0; i < posicionObstaculos.Count; i++)
+        {
+            if (posAuxiliar == posicionObstaculos[i].localPosition)
+            {
+                vacio = false;
+            }
+        }
+        return vacio;
     }
 
     public void restarTotalEspejos()
     {
+        posicionObstaculos.Add(espejoSeleccionado.transform);
         espejosRestantes--;
     }
 
