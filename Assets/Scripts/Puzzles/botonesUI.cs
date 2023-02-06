@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class EmpezarBT : MonoBehaviour
+public class botonesUI : MonoBehaviour
 {
 
     public delegate void eventoBoton();
@@ -16,6 +17,18 @@ public class EmpezarBT : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    public void btReintentar()
+    {
+        int escena = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(escena);
+    }
+
+    public void btVolver()
+    {
+        SceneManager.LoadScene(0);
 
     }
 

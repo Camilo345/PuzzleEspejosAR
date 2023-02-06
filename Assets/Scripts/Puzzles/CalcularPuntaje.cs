@@ -83,16 +83,4 @@ public class CalcularPuntaje : MonoBehaviour
             }
         }
     }
-
-    public void btReintentar()
-    {
-        int escena = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(escena);
-    }
-
-    public void btVolver()
-    {
-        SceneManager.LoadScene(0);
-    
-    }
 }

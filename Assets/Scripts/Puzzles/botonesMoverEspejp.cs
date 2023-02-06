@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class botonesMoverEspejp : MonoBehaviour
 {
     public GameObject panel;
     public GameObject botonEspejo;
     public GestionEspejos espejos;
- 
+    public TMP_Text textoRestantes;
 
     public delegate void eventoAbrirPanel();
     public static event eventoAbrirPanel activarPanel;
@@ -17,7 +18,8 @@ public class botonesMoverEspejp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // espejos = GameObject.FindGameObjectWithTag("Nivel").GetComponent<GestionEspejos>();
+        // espejos = GameObject.FindGameObjectWithTag("Nivel").GetComponent<GestionEspejos>();
+        Invoke("buscarEspejos", 3f);
     }
 
     // Update is called once per frame
@@ -29,7 +31,7 @@ public class botonesMoverEspejp : MonoBehaviour
     void buscarEspejos()
     {
         espejos = GameObject.FindGameObjectWithTag("Nivel").GetComponent<GestionEspejos>();
-   
+        textoRestantes.text = espejos.espejosRestantes + "";
     }
 
     public void abrirPanel()
@@ -65,6 +67,7 @@ public class botonesMoverEspejp : MonoBehaviour
         botonEspejo.SetActive(true);
         activarPanel();
         espejos.restarTotalEspejos();
+        textoRestantes.text = espejos.espejosRestantes+"";
         if (espejos.espejosRestantes == 0)
         {
 

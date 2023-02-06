@@ -18,11 +18,11 @@ public class ControlMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        BotonCerrarPanel.cerrarPanelE += cambiarVolverALanzar;
+        PanelTutorial.cerrarPanelE += cambiarVolverALanzar;
     }
     private void OnDisable()
     {
-        BotonCerrarPanel.cerrarPanelE -= cambiarVolverALanzar;
+        PanelTutorial.cerrarPanelE -= cambiarVolverALanzar;
     }
 
     // Start is called before the first frame update
