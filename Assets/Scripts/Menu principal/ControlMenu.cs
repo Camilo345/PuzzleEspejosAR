@@ -9,6 +9,7 @@ public class ControlMenu : MonoBehaviour
     public GameObject panel;
     public GameObject punto;
     public int numeroBoton = 0;
+    public Animator anim;
 
     private RaycastHit hit;
     private Ray ray;
@@ -36,7 +37,6 @@ public class ControlMenu : MonoBehaviour
         if (puedoLanzar)
         {
             lanzarRay();
-            cambiatEscena();
         }
        
     }
@@ -52,41 +52,41 @@ public class ControlMenu : MonoBehaviour
         
             if (hit.collider.gameObject.CompareTag("Info"))
             {
+                anim.SetBool("Aparecer", true);
                 numeroBoton = 1;
             }
             else if (hit.collider.gameObject.CompareTag("Empezar"))
             {
                 numeroBoton = 2;
+                anim.SetBool("Aparecer", true);
             }
             else
             {
                 numeroBoton = 0;
+                anim.SetBool("Aparecer", false);
             }
         }
         else
         {
             numeroBoton = 0;
+            anim.SetBool("Aparecer", false);
         }
         
     }
 
-    void cambiatEscena()
+    public void cambiatEscena()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (numeroBoton == 1)
         {
-            if (numeroBoton == 1)
-            {
-                panel.SetActive(true);
-                puedoLanzar = false;
-                punto.SetActive(false);
-            }
-
-            if (numeroBoton == 2)
-            {
-                SceneManager.LoadScene(3);
-            }
+            panel.SetActive(true);
+            puedoLanzar = false;
+            punto.SetActive(false);
         }
-     
+
+        if (numeroBoton == 2)
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 
     void cambiarVolverALanzar()

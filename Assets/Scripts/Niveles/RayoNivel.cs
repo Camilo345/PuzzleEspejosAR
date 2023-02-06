@@ -8,6 +8,7 @@ public class RayoNivel : MonoBehaviour
     public Camera cam;
     public string nombre;
     public GameObject punto;
+    public Animator anim;
 
     private RaycastHit hit;
     private Ray ray;
@@ -25,7 +26,6 @@ public class RayoNivel : MonoBehaviour
     {
         
         lanzarRay();
-        cambiarEscena();
     }
 
     void lanzarRay()
@@ -38,23 +38,21 @@ public class RayoNivel : MonoBehaviour
         {
             puedoCambiar = true;
             nombre = hit.collider.name;
-           
+            anim.SetBool("Aparecer",true);
         }
         else
         {
+            anim.SetBool("Aparecer", false);
             puedoCambiar = false;
             nombre = "  ";
         }
-        Debug.DrawRay(ray.origin, ray.direction, Color.green,300);
     }
 
-    void cambiarEscena()
+    public void cambiarEscena()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log(hit.collider.gameObject.GetComponent<Nivel>().nivel + "");
-            hit.collider.gameObject.GetComponent<Nivel>().cambiarNivel();
-        }
+        
+        Debug.Log(hit.collider.gameObject.GetComponent<Nivel>().nivel + "");
+        hit.collider.gameObject.GetComponent<Nivel>().cambiarNivel();
     }
 
 }

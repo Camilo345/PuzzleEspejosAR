@@ -20,6 +20,6 @@ public class Nivel : MonoBehaviour
 
     public void cambiarNivel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(nivel);
     }
 }
