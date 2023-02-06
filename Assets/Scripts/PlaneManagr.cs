@@ -8,24 +8,41 @@ public class PlaneManagr : MonoBehaviour
 {
     public ARPlaneManager PlaneManager;
     public GameObject Cubo;
+    public Material material1;
+    public Camera cam;
+    public LayerMask layer;
+    RaycastHit hit;
+    private Ray ray;
+    Vector3 posMouse;
 
+    private ARTrackedImageManager imageTracker;
     private List<ARPlane> planos = new List<ARPlane>();
-    private GameObject model3DPlaced;
+
+    private  GameObject model3DPlaced;
 
     private void OnEnable()
     {
+        imageTracker = FindObjectOfType<ARTrackedImageManager>();
+        imageTracker.trackedImagesChanged += OnImageChanged;
         PlaneManager.planesChanged += PlanesFound;
+
     }
 
     private void OnDisable()
     {
+        imageTracker.trackedImagesChanged -= OnImageChanged;
         PlaneManager.planesChanged -= PlanesFound;
+    }
+
+    private void OnImageChanged(ARTrackedImagesChangedEventArgs obj)
+    {
+      
     }
 
     private void Start()
     {
 
-        GameObject[] ListaARsession = GameObject.FindGameObjectsWithTag("ARSession");
+    /*    GameObject[] ListaARsession = GameObject.FindGameObjectsWithTag("ARSession");
         if (ListaARsession.Length > 1)
         {
             Destroy(gameObject);
@@ -33,16 +50,28 @@ public class PlaneManagr : MonoBehaviour
         else
         {
             DontDestroyOnLoad(gameObject);
-        }
+        }*/
        
     }
   
 
     private void Update()
     {
+       
         if (Input.GetMouseButtonDown(0) && model3DPlaced != null)
         {
-            SceneManager.LoadScene(1);
+            posMouse = Input.mousePosition;
+            posMouse = cam.ScreenToWorldPoint(posMouse);
+         
+            ray = cam.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray.origin, ray.direction, out hit))
+            {
+                if (hit.collider.gameObject.CompareTag("Respawn"))
+                {
+                    hit.collider.gameObject.GetComponent<MeshRenderer>().material = material1;
+                }
+                
+            }
         }
     }
 

@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - ARSession
+  - Espejo
+  - Objetivo
+  - Muro
+  - Panel
+  - BTespejos
+  - Nivel
+  - SpawnEspejo
+  - Info
+  - Empezar
   layers:
   - Default
   - TransparentFX
@@ -12,8 +21,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Espejo
+  - interactuar
   - 
   - 
   - 
