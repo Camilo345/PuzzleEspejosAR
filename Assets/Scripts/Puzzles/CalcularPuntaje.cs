@@ -49,7 +49,6 @@ public class CalcularPuntaje : MonoBehaviour
     {
         espejos = GameObject.FindGameObjectWithTag("Nivel").GetComponent<GestionEspejos>();
         int totalEspejos = espejos.totalEspejos;
-        Debug.Log(totalEspejos + "");
         GameObject[] listaEspejos = GameObject.FindGameObjectsWithTag("Espejo");
         puntaje = (3 * listaEspejos.Length) / totalEspejos;
 

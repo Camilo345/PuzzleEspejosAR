@@ -42,7 +42,6 @@ public class AnimacionNivel : MonoBehaviour
     void activarEstrellas(bool activar)
     {
         int puntaje = PlayerPrefs.GetInt("puntaje" + indiceNivel);
-        Debug.Log(puntaje);
         if (puntaje == 0)
         {
             activar = false;

@@ -9,15 +9,12 @@ public class MenuPrincipal : MonoBehaviour
 
     public ARPlaneManager PlaneManager;
     public GameObject Cubo;
-    public Material material1;
     public Camera cam;
- 
     public InfoGlobal info;
 
-    RaycastHit hit;
+    private RaycastHit hit;
     private Ray ray;
-    Vector3 posMouse;
-
+    private Vector3 posMouse;
     private List<ARPlane> planos = new List<ARPlane>();
     private GameObject model3DPlaced;
 
